@@ -14,6 +14,10 @@ include $(PROJECTSDIR)/common/Makefile.std
 test:		$(RESDIR)/.must_exist
 		$(BINDIR)/* < tests/1 > $(RESDIR)/1
 
+install:
+		$(INSTALL) -d $(PROJECTDIR)/lib/templates
+		@$(MAKE) std_$@ ORIGINAL_TARGET=$@
+
 %:
 		@echo "Invoking std_$@ rule:"
 		@$(MAKE) std_$@ ORIGINAL_TARGET=$@
