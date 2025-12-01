@@ -15,6 +15,7 @@ test:		$(RESDIR)/.must_exist
 		$(BINDIR)/* < tests/1 > $(RESDIR)/1
 
 install:
+		$(INSTALL) -d -m 0777 $(PROJECTDIR)/cache
 		$(INSTALL) -d $(PROJECTDIR)/lib/templates
 		@$(MAKE) std_$@ ORIGINAL_TARGET=$@
 
