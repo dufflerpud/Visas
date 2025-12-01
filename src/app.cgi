@@ -412,12 +412,7 @@ sub gen_footer
 	    &text_of({en=>"Delete"}), "'",
 	    " onClick='disposition.value=\"Delete\";submit();'>" )
 	if( $form_flag );
-    push( @s,
-	"<input type=button value='",
-	    &text_of({en=>"Administration"}), "'",
-	    " onClick='func.value=\"Administration\";submit();'>",
-	&logout_select(),
-	"</td></tr></table>" );
+    push( @s, &logout_select(), "</td></tr></table>" );
     return join("",@s);
     }
 
@@ -465,7 +460,7 @@ sub CGI_main
 	$Data::Dumper::Indent = 1;
 	&write_file( $fn, Data::Dumper->Dump( [\%cpi_vars::FORM], ["old_form"] ) );
 	}
-    elsif( $cpi_vars::FORM{func} eq "Administration" )
+    elsif( $cpi_vars::FORM{func} eq "admin" )
 	{
 	&admin_page();
 	&cleanup(0);
