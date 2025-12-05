@@ -30,7 +30,7 @@ use cpi_vars;
 
 use Data::Dumper;
 
-&setup( preset_language=>"en" );
+&setup( stderr=>"Visas", require_captcha=>1 );
 
 # Put constants here
 
