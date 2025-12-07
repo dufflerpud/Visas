@@ -25,7 +25,7 @@ use cpi_filename qw( filename_to_text text_to_filename );
 use cpi_arguments qw( parse_arguments );
 use cpi_cgi qw( CGIheader CGIreceive );
 use cpi_setup qw( setup );
-use cpi_user qw( admin_page logout_select );
+use cpi_user qw( logout_select );
 use cpi_vars;
 
 use Data::Dumper;
@@ -459,11 +459,6 @@ sub CGI_main
 	delete $cpi_vars::FORM{disposition};
 	$Data::Dumper::Indent = 1;
 	&write_file( $fn, Data::Dumper->Dump( [\%cpi_vars::FORM], ["old_form"] ) );
-	}
-    elsif( $cpi_vars::FORM{func} eq "admin" )
-	{
-	&admin_page();
-	&cleanup(0);
 	}
     print "<hr>";
 
